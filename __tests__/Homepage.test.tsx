@@ -43,16 +43,12 @@ describe('HomePage component', () => {
     expect(nameField).toBeDefined();
     fireEvent.changeText(nameField, 'e');
     expect(nameField.props.value).toBe('e');
-    // console.log('====props==', nameField.props.onChangeText);
-    // expect(nameField.props.onChangeText.handleName).toHaveBeenCalled()
-
     const amountField = screen.getByTestId('amount');
     expect(amountField).toBeDefined();
     fireEvent.changeText(amountField, '3000');
     expect(amountField.props.value).toBe('3000');
 
     const paymentBtn = screen.getByTestId('paymentBtn');
-    // console.log("payment btn===", paymentBtn);
     fireEvent.press(paymentBtn);
     expect(Alert.alert).toHaveBeenCalled();
   });
@@ -80,7 +76,6 @@ describe('HomePage component', () => {
     render(<HomePage />);
     const state_toggle = true;
     const button = screen.getByTestId('toggleBtn');
-    // console.log('===', button.props.children[0]);
     fireEvent.press(button);
     const modal = screen.getByTestId('modal');
     expect(state_toggle).toBe(true);

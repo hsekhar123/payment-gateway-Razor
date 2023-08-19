@@ -81,20 +81,17 @@ class HomePage extends Component<IProps, IState> {
         }
       } else {
         Alert.alert('All field are required');
-        // this.setState({ toggle:true})
       }
     } else {
       try {
         //@ts-ignore
         const result = await RazorpayCheckout.open(this.state.product);
-        // console.log('products=>>', result);
         Alert.alert(`Success: ${result.razorpay_payment_id}`);
       } catch (error) {
         Alert.alert('Transaction failed');
         console.log('falied error=>', error);
       }
     }
-
     this.setState({toggle: false});
   };
   toggleButton = () => {
@@ -119,7 +116,6 @@ class HomePage extends Component<IProps, IState> {
             <Feather name="list" color={'black'} size={20} />
           </TouchableOpacity>
         </View>
-
         <View style={styles.mainSect}>
           {this.state.toggle ? (
             <View
@@ -194,11 +190,9 @@ class HomePage extends Component<IProps, IState> {
                         alignItems: 'center',
                         borderRadius: 5,
                         marginVertical: 10,
-                      }}
-                    
+                      }}                    
                     >
                       <Text style={{color: 'white'}}>
-                        {/* Pay {this.state.product_price} */}
                         pay
                       </Text>
                     </TouchableOpacity>

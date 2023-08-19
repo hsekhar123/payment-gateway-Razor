@@ -29,7 +29,6 @@ describe("for MapPages", () => {
     it('render page', () => {
         render(<MapPage />);
         const map = screen.getByTestId('google-map');
-        // console.log("===map", map)
         expect(map).toBeTruthy()
     })
 
