@@ -37,23 +37,6 @@ class MapPage extends Component<IProps, IState> {
       try {
         const result = await request(PERMISSIONS.IOS.LOCATION_WHEN_IN_USE);
         console.log('result=>>', result);
-        // switch (result) {
-        //   case 'unavailable':
-        //     console.log(
-        //       'This feature is not available (on this device / in this context)',
-        //     );
-        //     break;
-        //   case 'granted':
-        //     console.log('The permission is granted');
-        //     break;
-        //   case 'denied':
-        //     console.log(
-        //       'The permission has not been requested / is denied but requestable',
-        //     );
-        //     break;
-        //   default:
-        //     openSettings();
-        // }
         if (result === 'granted') {
           console.log("Permission granted")
         } else if(result === "unavailable") {
@@ -70,20 +53,6 @@ class MapPage extends Component<IProps, IState> {
       try {
         const result = await request(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION);
         console.log('result=>>', result);
-        // switch (result) {
-        //   case 'unavailable':
-        //     console.log('This feature is not available (on this device / in this context)'
-        //     );
-        //     break;
-        //   case 'denied':
-        //     console.log('The permission has not been requested / is denied but requestable');
-        //     break;
-        //   case 'granted':
-        //     console.log('The permission is granted');
-        //     break;
-        //   default:
-        //     openSettings();
-        // }
         if (result === 'granted') {
           console.log('Permission granted');
         } else if (result === 'unavailable') {
@@ -107,7 +76,6 @@ class MapPage extends Component<IProps, IState> {
     return (
       <SafeAreaView>
         <View style={styles.container}>
-          {/* api key--- AIzaSyDiRHVEFXT5yQVXnln6gDXai0Md-zq6RXk */}
           <MapView
             testID="google-map"
             initialRegion={cordinate}
